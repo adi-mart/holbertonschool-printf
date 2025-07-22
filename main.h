@@ -16,11 +16,12 @@ typedef struct format
 } format_t;
 
 format_t formats[] = {
-    {'c', print_char},
-    {'s', print_string},
-    {'d', print_int}
-    {'%', print_prct},
-    {'\0', NULL},
+	{'c', print_char},
+	{'s', print_string},
+	{'%', print_prct},
+	{'d', print_int},
+	{'i', print_int},
+	{'\0', NULL},
 };
 
 int _printf(const char *format, ...);
