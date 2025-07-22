@@ -15,19 +15,11 @@ typedef struct format
 	int (*func)(va_list args);
 } format_t;
 
-format_t formats[] = {
-    {'c', print_char},
-    {'s', print_string},
-    {'d', print_int}
-    {'%', print_prct},
-    {'\0', NULL},
-};
-
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_prct(va_list args);
-int print_int(va_list args);
+
 
 #endif
