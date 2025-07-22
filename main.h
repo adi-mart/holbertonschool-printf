@@ -18,7 +18,6 @@ typedef struct format
 format_t formats[] = {
 	{'c', print_char},
 	{'s', print_string},
-	{'d', print_int},
 	{'%', print_prct},
 	{'d', print_int},
 	{'i', print_int},
