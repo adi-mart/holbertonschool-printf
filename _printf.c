@@ -17,22 +17,22 @@ int _printf(const char *format, ...)
 		{'c', print_char}, {'s', print_string}, {'%', print_prct},
 		{'d', print_int}, {'i', print_int}, {'\0', NULL}
 	};
-	va_start(args, format);
 
-	while (format && format[i])
+	if (format == NULL)
+		return (-1);
+	va_start(args, format);
+	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
 			i++;
-			j = 0;
-			while (formats[j].specifier)
+			for (j = 0; formats[j].specifier; j++)
 			{
 				if (formats[j].specifier == format[i])
 				{
 					total += formats[j].func(args);
 					break;
 				}
-				j++;
 			}
 			if (!formats[j].specifier)
 			{
