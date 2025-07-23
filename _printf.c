@@ -11,26 +11,20 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0;
-	int total = 0;
+	int i = 0, total = 0, j;
 
+	format_t formats[] = {
+		{'c', print_char}, {'s', print_string}, {'%', print_prct},
+		{'d', print_int}, {'i', print_int}, {'\0', NULL}
+	};
 	va_start(args, format);
 
 	while (format && format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
-			format_t formats[] = {
-				{'c', print_char},
-				{'s', print_string},
-				{'%', print_prct},
-				{'d', print_int},
-				{'i', print_int},
-				{'\0', NULL}
-			};
-			int j = 0;
-
 			i++;
+			j = 0;
 			while (formats[j].specifier)
 			{
 				if (formats[j].specifier == format[i])
@@ -39,6 +33,12 @@ int _printf(const char *format, ...)
 					break;
 				}
 				j++;
+			}
+			if (!formats[j].specifier)
+			{
+				_putchar('%');
+				_putchar(format[i]);
+				total += 2;
 			}
 		}
 		else
