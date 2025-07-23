@@ -11,7 +11,6 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-
 	int i = 0;
 	int total = 0;
 
@@ -25,6 +24,8 @@ int _printf(const char *format, ...)
 				{'c', print_char},
 				{'s', print_string},
 				{'%', print_prct},
+				{'d', print_int},
+				{'i', print_int},
 				{'\0', NULL}
 			};
 			int j = 0;
