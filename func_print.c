@@ -1,5 +1,18 @@
 #include <stdio.h>
 #include "main.h"
+#include <unistd.h>
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
 /**
  * print_char - prints a character
  * @args: va_list containing the character to print
@@ -36,10 +49,10 @@ int print_string(va_list args)
  */
 int print_prct(va_list args)
 {
+	(void)args;
 	_putchar('%');
 	return (1);
 }
-
 
 /* preparation de la recursion, je declare avant */
 int print_number(int n);
@@ -52,10 +65,10 @@ int print_number(int n);
 int print_int(va_list args)
 {
 	int n;
-	 n = va_arg(args, int);
+
+	n = va_arg(args, int);
 	return (print_number(n));
 }
-
 
 /**
  * print_number - affiche un entier en utilisant la récursion
