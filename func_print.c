@@ -51,7 +51,7 @@ int print_string(va_list args)
  */
 int print_prct(va_list args)
 {
-	(void)args; /**évite l'erreur "unused parameter" */
+	(void)args;
 	_putchar('%');
-	return (1); /**calcul la longeur totale de la sortie */
+	return (1);
 }
