@@ -1,4 +1,4 @@
-# _printf - Custom printf Function (version english)
+# _printf - Custom printf Function (english version )
 
 ## Description
 This project implements a custom version of the standard C library `printf` function. The `_printf` function produces output according to a specified format and writes to standard output.
