@@ -347,7 +347,7 @@ Un diagramme de flux détaillé illustrant le fonctionnement de `_printf` est di
 - La gestion des cas d'erreur
 - Le retour des valeurs
 
-![alt text](image.png)
+![alt text](image/flowchart.png)
 
 ```c
 Logique du Flowchart
