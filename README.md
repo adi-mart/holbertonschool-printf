@@ -113,7 +113,7 @@ A detailed flowchart illustrating the operation of `_printf` is available. This 
 - Error case handling
 - Return values
 
-![alt text](flowchart.png)
+![alt text](image/flowchart.png)
 
 ```c
 Flowchart Logic
