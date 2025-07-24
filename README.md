@@ -12,14 +12,17 @@ L'objectif est de réimplémenter la fonction `printf` du langage C, afin d'appr
   - `%%` : Affiche un pourcentage
 
 ## 🗂️ Structure du projet
-| Fichier         | Rôle / Contenu                              |
-|-----------------|---------------------------------------------|
-| `main.h`        | Prototypes + structure `format_t`           |
-| `_printf.c`     | Fonction principale de formatage            |
-| `func_print.c`  | Fonctions pour `%c`, `%s`, `%%`             |
-| `print_int.c`   | Fonction récursive pour `%d` / `%i`         |
-| `main.c`        | Tests d’utilisation                         |
-| `man_3_printf`  | Documentation type man                      |
+
+```bash
+holbertonschool-printf/
+├── _printf.c              # Fonction principale (_printf)
+├── func_print.c           # Fonctions : print_char, print_string, print_prct
+├── print_int.c            # Affichage récursif des entiers (%d, %i)
+├── main.c                 # Fichier de test
+├── main.h                 # Déclarations & structure format_t
+├── man_3_printf           # Page de documentation man (optionnelle)
+├── flowchart_printf.jpeg  # Image du flowchart (_printf)
+└── README.md              # Ce fichier
 
 ## 🚀 Getting Started
 ### ✅ Prerequisites
