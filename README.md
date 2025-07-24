@@ -64,4 +64,3 @@ _printf("Hello %s, you are %d years old\n", "Alice", 30);
 	7.	🧮 Fermer la va_list
 → retourner le nombre total de caractères affichés.
 ```
-
