@@ -1,17 +1,27 @@
 # 🖨️ holbertonschool-printf
 
-## 📌 Description
-Ce projet a été réalisé dans le cadre du cursus Holberton School.
-L'objectif est de réimplémenter la fonction `printf` du langage C, afin d'apprendre à gérer les arguments variables, les chaînes de caractères, et à structurer un code modulaire.
+## 📝 Présentation
 
-## ✅ Fonctionnalités principales
-- 📦 Affichage de texte formaté avec les spécificateurs :
-  - `%c` : Affiche un caractère
-  - `%s` : Affiche une chaîne
-  - `%d`, `%i` : Affiche un entier signé
-  - `%%` : Affiche un pourcentage
+Ce projet consiste à réimplémenter la fonction `_printf` du langage C.  
+Il permet de manipuler :
+- les arguments variables (`va_list`)
+- la gestion de l’affichage formaté (`%d`, `%s`, `%c`, etc.)
+- la structuration de projet modulaire en langage C
 
-## 🗂️ Structure du projet
+---
+
+## ✅ Fonctionnalités prises en charge
+
+| Spécificateur | Description                |
+|---------------|----------------------------|
+| `%c`          | Affiche un **caractère**   |
+| `%s`          | Affiche une **chaîne**     |
+| `%d`, `%i`    | Affiche un **entier signé**|
+| `%%`          | Affiche un **pourcentage** |
+
+---
+
+## 📁 Structure du projet
 
 ```bash
 holbertonschool-printf/
@@ -23,34 +33,34 @@ holbertonschool-printf/
 ├── man_3_printf           # Page de documentation man (optionnelle)
 ├── flowchart_printf.jpeg  # Image du flowchart (_printf)
 └── README.md              # Ce fichier
-
-## 🚀 Getting Started
-### ✅ Prerequisites
-- Un compilateur C (GCC recommandé)
-- Système testé sur :
-  - ✅ Ubuntu 20.04+
-  - ✅ macOS
-  - ✅ Windows (avec WSL ou MinGW)
-
-### 🛠️ Compilation
-```sh
-gcc -Wall -Werror -Wextra -pedantic *.c -o printf
 ```
 
-## 💡 Exemple d’utilisation
+💡 Exemple d’utilisation
 ```c
-_printf("[INFO] Utilisateur : %s | Score : %d%%\n", "Alice", 98);
-// Affiche : [INFO] Utilisateur : Alice | Score : 98%
+_printf("Hello %s, you are %d years old\n", "Alice", 30);
+// Affiche : Hello Alice, you are 30 years old
 ```
 
-## 🧠 Flowchart du fonctionnement de _printf
-je veux mettre une image ici 👈 
 
-## 🧾 Explication simple du flowchart
-1. 🔁 On parcourt la chaîne de format caractère par caractère.
-2. Si ce n’est pas un % → on affiche normalement.
-3. Si on trouve % :
-   - ✅ Si le caractère suivant est un format connu : on affiche avec la bonne fonction (`print_int`, `print_char`, etc.)
-   - ❌ Sinon : on affiche % puis ce caractère.
-4. 📏 On compte chaque caractère affiché.
-5. 🧮 On retourne ce total à la fin.
+🔁 Flowchart (_printf)
+
+![flowchart](flow.png)
+```c
+🧾 Logique du Flowchart
+	1.	❓ Vérifier si le format est NULL
+→ retourner -1 si oui.
+	2.	🛠️ Initialiser les variables et la va_list.
+	3.	🔁 Parcourir la chaîne de format caractère par caractère.
+	4.	✏️ Si le caractère n’est pas %
+→ l’afficher avec _putchar.
+	5.	🔣 Si le caractère est % :
+	•	❌ Si le suivant n’existe pas
+→ retourner -1.
+	•	✅ Si le suivant est un spécificateur connu
+→ appeler la fonction correspondante et ajouter au total.
+	•	🚫 Sinon
+→ afficher % suivi du caractère inconnu.
+	6.	🔂 Répéter jusqu’à la fin de la chaîne.
+	7.	🧮 Fermer la va_list
+→ retourner le nombre total de caractères affichés.
+```
