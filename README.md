@@ -33,29 +33,35 @@ holbertonschool-printf/
 ├── man_3_printf           # Page de documentation man (optionnelle)
 ├── flowchart_printf.jpeg  # Image du flowchart (_printf)
 └── README.md              # Ce fichier
+```
 
 💡 Exemple d’utilisation
+```c
 _printf("Hello %s, you are %d years old\n", "Alice", 30);
 // Affiche : Hello Alice, you are 30 years old
+```
 
 
 🔁 Flowchart (_printf)
+
 ![flowchart](flow.png)
+```c
+🧾 Logique du Flowchart (version courte)
+	1.	❓ Vérifier si le format est NULL
+→ retourner -1 si oui.
+	2.	🛠️ Initialiser les variables et la va_list.
+	3.	🔁 Parcourir la chaîne de format caractère par caractère.
+	4.	✏️ Si le caractère n’est pas %
+→ l’afficher avec _putchar.
+	5.	🔣 Si le caractère est % :
+	•	❌ Si le suivant n’existe pas
+→ retourner -1.
+	•	✅ Si le suivant est un spécificateur connu
+→ appeler la fonction correspondante et ajouter au total.
+	•	🚫 Sinon
+→ afficher % suivi du caractère inconnu.
+	6.	🔂 Répéter jusqu’à la fin de la chaîne.
+	7.	🧮 Fermer la va_list
+→ retourner le nombre total de caractères affichés.
+```
 
-
-🧾 Logique du flowchart
-	1.	Initialiser les variables et va_list
-	2.	Parcourir la chaîne format caractère par caractère
-	3.	Si ce n’est pas un %, afficher directement
-	4.	Si c’est un % :
-	•	Si le caractère suivant est reconnu (c, s, d, i, %) → appeler la fonction correspondante
-	•	Sinon, afficher % + le caractère inconnu
-	5.	Continuer jusqu’à la fin de la chaîne
-	6.	Retourner le nombre total de caractères affichés
-
-🧪 Tests
-
-Compare toujours ton _printf avec la fonction standard printf :
-int len1 = _printf("%d\n", 1234);
-int len2 = printf("%d\n", 1234);
-// Les deux doivent afficher 1234 et retourner la même longueur
