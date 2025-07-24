@@ -1,4 +1,4 @@
-                    Library Functions Manual -  _printf
+                    Library Functions Manual -  _printf (english version)
 
 NAME
        _printf - formatted output conversion
@@ -27,29 +27,19 @@ CONVERSION SPECIFIERS
      A character that specifies the type of conversion to be applied.
        The conversion specifiers and their meanings are:
 
-    d, i   The int argument is converted to signed decimal notation.
-            The precision, if any, gives the minimum number of digits
-            that must appear; if the converted value requires fewer
-            digits, it is padded on the left with zeros.  The default
-            precision is 1.  When 0 is printed with an explicit
-            precision 0, the output is empty.
+    c      Prints a single character.
+            Takes an int argument and converts it to a character.
 
-    c      If no l modifier is present, the int argument is converted
-            to an unsigned char, and the resulting character is
-            written.
+    s      Prints a string of characters.
+            Takes a char * argument pointing to a null-terminated string.
+            If the string is NULL, prints "(null)".
 
-    s      If no l modifier is present: the const char * argument is
-            expected to be a pointer to an array of character type
-            (pointer to a string).  Characters from the array are
-            written up to (but not including) a terminating null byte
-            ('\0'); if a precision is specified, no more than the
-            number specified are written.  If a precision is given, no
-            null byte need be present; if the precision is not
-            specified, or is greater than the size of the array, the
-            array must contain a terminating null byte.
+    d, i   Prints a signed decimal integer.
+            Takes an int argument and converts it to decimal notation.
+            Both %d and %i work identically.
 
-    %      A '%' is written.  No argument is converted.  The complete
-            conversion specification is '%%'.
+    %      Prints a literal '%' character.
+            No argument is consumed. Use %% to print a single %.
 
 RETURN VALUE
     Upon successful return, these functions return the number of bytes
@@ -71,3 +61,73 @@ int main(void)
 }
 
 version 1.0                                                     July 2025                                                           _prinft
+
+
+
+===============================================================================
+
+
+
+                    Manuel des Fonctions de Bibliothèque - _printf (version française)
+
+NOM
+       _printf - conversion de sortie formatée
+
+BIBLIOTHÈQUE
+       Bibliothèque C standard (libc, -lc)
+
+SYNOPSIS
+ #include <stdio.h>
+    int _printf(const char *format, ...);
+
+DESCRIPTION
+    Les fonctions de la famille printf() produisent une sortie selon un
+    format comme décrit ci-dessous.
+
+    Format de la chaîne de format :
+    La chaîne de format est une chaîne de caractères, commençant et se terminant dans
+    son état de décalage initial, le cas échéant. La chaîne de format est une chaîne de caractères composée de zéro ou
+    plusieurs directives : caractères ordinaires (pas %), qui sont
+    copiés inchangés vers le flux de sortie ; et spécifications de
+    conversion, chacune résultant en la récupération de zéro ou plusieurs
+    arguments suivants. Chaque spécification de conversion est introduite
+    par le caractère %, et se termine par un spécificateur de conversion.
+
+SPÉCIFICATEURS DE CONVERSION
+     Un caractère qui spécifie le type de conversion à appliquer.
+       Les spécificateurs de conversion et leurs significations sont :
+
+    c      Imprime un caractère unique.
+            Prend un argument int et le convertit en caractère.
+
+    s      Imprime une chaîne de caractères.
+            Prend un argument char * pointant vers une chaîne terminée par '\0'.
+            Si la chaîne est NULL, imprime "(null)".
+
+    d, i   Imprime un entier décimal signé.
+            Prend un argument int et le convertit en notation décimale.
+            %d et %i fonctionnent de manière identique.
+
+    %      Imprime un caractère '%' littéral.
+            Aucun argument n'est consommé. Utilisez %% pour imprimer un seul %.
+
+VALEUR DE RETOUR
+    En cas de retour réussi, ces fonctions retournent le nombre d'octets
+    imprimés (excluant l'octet nul utilisé pour terminer la sortie vers les chaînes).
+
+EXEMPLES
+
+    #include <stdio.h>
+    #include "main.h"
+
+int main(void)
+{
+    _printf("Bonjour\n");
+    _printf("%d", 39);
+    _printf("%s", "Ceci est une chaîne");
+    _printf("%c", H);
+
+    return (0);
+}
+
+version 1.0                                                     Juillet 2025                                                        _prinft
