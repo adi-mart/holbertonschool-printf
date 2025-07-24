@@ -46,7 +46,7 @@ _printf("Hello %s, you are %d years old\n", "Alice", 30);
 
 ![flowchart](flow.png)
 ```c
-🧾 Logique du Flowchart (version courte)
+🧾 Logique du Flowchart
 	1.	❓ Vérifier si le format est NULL
 → retourner -1 si oui.
 	2.	🛠️ Initialiser les variables et la va_list.
