@@ -40,7 +40,7 @@ _printf("Hello %s, you are %d years old\n", "Alice", 30);
 
 
 🔁 Flowchart (_printf)
-![flowchart](flowchart1.png)
+![flowchart](flowchart.png)
 
 
 🧾 Logique du flowchart
