@@ -19,40 +19,16 @@ int _printf(const char *format, ...);
 
 ## Project Structure
 
-```
-holbertonschool-printf/
-├── _printf.c          # Main _printf function
-├── func_print.c       # Print functions for each type
-├── main.h             # Header file with prototypes and structures
-├── main.c             # Main test file
-├── README.md          # Project documentation
-├── man_3_printf       # Custom manual page
-└── flowchart_printf   # Algorithm flowchart (to be added)
-```
+| File            | Role / Content                              |
+|-----------------|---------------------------------------------|
+| `main.h`        | Prototypes + `format_t` structure           |
+| `_printf.c`     | Main formatting function                    |
+| `func_print.c`  | Functions for `%c`, `%s`, `%d`, `%i`, `%%`  |
+| `_putchar.c`    | Character writing function                  |
+| `man_3_printf`  | Manual page documentation                   |
+| `README.md`     | Complete project documentation              |
+| `image/`        | Folder containing images (flowchart)       |
 
-## Files
-
-### `main.h`
-Contains:
-- Prototypes of all functions
-- The `format_t` structure that associates specifiers with functions
-- Necessary includes
-
-### `_printf.c`
-Main function that:
-- Parses the format string
-- Handles variable arguments with `va_list`
-- Calls appropriate functions according to the specifier
-- Returns the number of characters printed
-
-### `func_print.c`
-Contains specialized print functions:
-- `_putchar()` : Writes a character to stdout
-- `print_char()` : Prints a character
-- `print_string()` : Prints a string
-- `print_prct()` : Prints the '%' character
-- `print_int()` : Prints an integer
-- `print_number()` : Recursive function for number display
 
 ## Installation and Usage
 
@@ -115,93 +91,13 @@ A detailed flowchart illustrating the operation of `_printf` is available. This 
 
 ![alt text](image/flowchart.png)
 
-```c
-Flowchart Logic
-	1.	Check if format is NULL
-→ return -1 if yes.
-	2.	Initialize variables and va_list.
-	3.	Loop through format string character by character.
-	4.	If character is not %
-→ display it with _putchar.
-	5.	If character is % :
-	•	If next doesn't exist
-→ return -1.
-	•	If next is a known specifier
-→ call corresponding function and add to total.
-	•	Otherwise
-→ display % followed by unknown character.
-	6.	Repeat until end of string.
-	7.	Close va_list
-→ return total number of characters displayed.
-```
+
 
 ## Custom Manual
-```
 
-                      Library Functions Manual -  _printf
+![alt text](image/man_3_printf.png)
 
-NAME
-       _printf - formatted output conversion
 
-LIBRARY
-       Standard C library (libc, -lc)
-
-SYNOPSIS
- #include <stdio.h>
-    int _printf(const char *format, ...);
-
-DESCRIPTION
-    The functions in the printf() family produce output according to a
-    format as described below.
-
-    Format of the format string :
-    The format string is a character string, beginning and ending in
-    its initial shift state, if any. The format string is a character string composed of zero or
-    more directives: ordinary characters (not %), which are
-    copied unchanged to the output stream; and conversion
-    specifications, each of which results in fetching zero or more
-    subsequent arguments.  Each conversion specification is introduced
-    by the character %, and ends with a conversion specifier.
-
-CONVERSION SPECIFIERS
-     A character that specifies the type of conversion to be applied.
-       The conversion specifiers and their meanings are:
-
-    c      Prints a single character.
-            Takes an int argument and converts it to a character.
-
-    s      Prints a string of characters.
-            Takes a char * argument pointing to a null-terminated string.
-            If the string is NULL, prints "(null)".
-
-    d, i   Prints a signed decimal integer.
-            Takes an int argument and converts it to decimal notation.
-            Both %d and %i work identically.
-
-    %      Prints a literal '%' character.
-            No argument is consumed. Use %% to print a single %.
-
-RETURN VALUE
-    Upon successful return, these functions return the number of bytes
-    printed (excluding the null byte used to end output to strings).
-
-EXAMPLES
-
-    #include <stdio.h>
-    #include "main.h"
-
-int main(void)
-{
-    _printf("Hello\n");
-    _printf("%d", 39);
-    _printf("%s", "This is a string");
-    _printf("%c", H);
-
-    return (0);
-}
-
-version 1.0                                                    July 2025                                                      _prinft
-```
 
 ## Limitations
 
@@ -220,14 +116,13 @@ By Aurélie and Mohamed
 ## License
 This project is for educational purposes.
 
+---
 
+<br><br><br>
 
-===============================================================================
+---
 
-
-
-
-# _printf - Fonction printf personnalisée (Version Française)
+_printf - Fonction printf personnalisée (Version Française)
 
 ## Description
 Ce projet implémente une version personnalisée de la fonction `printf` de la bibliothèque standard C. La fonction `_printf` produit une sortie selon un format spécifié et écrit vers la sortie standard.
@@ -248,40 +143,16 @@ int _printf(const char *format, ...);
 
 ## Structure du projet
 
-```
-holbertonschool-printf/
-├── _printf.c          # Fonction principale _printf
-├── func_print.c       # Fonctions d'impression pour chaque type
-├── main.h             # Fichier d'en-tête avec prototypes et structures
-├── main.c             # Fichier de test principal
-├── README.md          # Documentation du projet
-├── man_3_printf       # Page de manuel personnalisée
-└── flowchart_printf   # Diagramme de flux de l'algorithme (à ajouter)
-```
+| Fichier         | Rôle / Contenu                              |
+|-----------------|---------------------------------------------|
+| `main.h`        | Prototypes + structure `format_t`           |
+| `_printf.c`     | Fonction principale de formatage            |
+| `func_print.c`  | Fonctions pour `%c`, `%s`, `%d`, `%i`, `%%` |
+| `_putchar.c`    | Fonction d'écriture d'un caractère         |
+| `man_3_printf`  | Documentation type man                      |
+| `README.md`     | Documentation complète du projet           |
+| `image/`        | Dossier contenant les images (flowchart)   |
 
-## Fichiers
-
-### `main.h`
-Contient :
-- Les prototypes de toutes les fonctions
-- La structure `format_t` qui associe les spécificateurs aux fonctions
-- Les includes nécessaires
-
-### `_printf.c`
-Fonction principale qui :
-- Parse la chaîne de format
-- Gère les arguments variables avec `va_list`
-- Appelle les fonctions appropriées selon le spécificateur
-- Retourne le nombre de caractères imprimés
-
-### `func_print.c`
-Contient les fonctions d'impression spécialisées :
-- `_putchar()` : Écrit un caractère vers stdout
-- `print_char()` : Imprime un caractère
-- `print_string()` : Imprime une chaîne de caractère
-- `print_prct()` : Imprime le caractère '%'
-- `print_int()` : Imprime un entier
-- `print_number()` : Fonction récursive pour l'affichage des nombres
 
 
 ## Installation et Utilisation
@@ -349,93 +220,12 @@ Un diagramme de flux détaillé illustrant le fonctionnement de `_printf` est di
 
 ![alt text](image/flowchart.png)
 
-```c
-Logique du Flowchart
-	1.	Vérifier si le format est NULL
-→ retourner -1 si oui.
-	2.	Initialiser les variables et la va_list.
-	3.	Parcourir la chaîne de format caractère par caractère.
-	4.	Si le caractère n’est pas %
-→ l’afficher avec _putchar.
-	5.	Si le caractère est % :
-	•	Si le suivant n’existe pas
-→ retourner -1.
-	•	Si le suivant est un spécificateur connu
-→ appeler la fonction correspondante et ajouter au total.
-	•	Sinon
-→ afficher % suivi du caractère inconnu.
-	6.	Répéter jusqu’à la fin de la chaîne.
-	7.	Fermer la va_list
-→ retourner le nombre total de caractères affichés.
-```
 
 
 ## Manuel personnalisé
-```
-                Manuel des Fonctions de Bibliothèque - _printf
 
-NOM
-       _printf - conversion de sortie formatée
+![alt text](image/man_3_printf.png)
 
-BIBLIOTHÈQUE
-       Bibliothèque C standard (libc, -lc)
-
-SYNOPSIS
- #include <stdio.h>
-    int _printf(const char *format, ...);
-
-DESCRIPTION
-    Les fonctions de la famille printf() produisent une sortie selon un
-    format comme décrit ci-dessous.
-
-    Format de la chaîne de format :
-    La chaîne de format est une chaîne de caractères, commençant et se terminant dans
-    son état de décalage initial, le cas échéant. La chaîne de format est une chaîne de caractères composée de zéro ou
-    plusieurs directives : caractères ordinaires (pas %), qui sont
-    copiés inchangés vers le flux de sortie ; et spécifications de
-    conversion, chacune résultant en la récupération de zéro ou plusieurs
-    arguments suivants. Chaque spécification de conversion est introduite
-    par le caractère %, et se termine par un spécificateur de conversion.
-
-SPÉCIFICATEURS DE CONVERSION
-     Un caractère qui spécifie le type de conversion à appliquer.
-       Les spécificateurs de conversion et leurs significations sont :
-
-    c      Imprime un caractère unique.
-            Prend un argument int et le convertit en caractère.
-
-    s      Imprime une chaîne de caractères.
-            Prend un argument char * pointant vers une chaîne terminée par '\0'.
-            Si la chaîne est NULL, imprime "(null)".
-
-    d, i   Imprime un entier décimal signé.
-            Prend un argument int et le convertit en notation décimale.
-            %d et %i fonctionnent de manière identique.
-
-    %      Imprime un caractère '%' littéral.
-            Aucun argument n'est consommé. Utilisez %% pour imprimer un seul %.
-
-VALEUR DE RETOUR
-    En cas de retour réussi, ces fonctions retournent le nombre d'octets
-    imprimés (excluant l'octet nul utilisé pour terminer la sortie vers les chaînes).
-
-EXEMPLES
-
-    #include <stdio.h>
-    #include "main.h"
-
-int main(void)
-{
-    _printf("Bonjour\n");
-    _printf("%d", 39);
-    _printf("%s", "Ceci est une chaîne");
-    _printf("%c", H);
-
-    return (0);
-}
-
-version 1.0                                                  Juillet 2025                                                    _prinft
-```
 
 
 ## Limitations
