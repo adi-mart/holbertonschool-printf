@@ -89,8 +89,7 @@ A detailed flowchart illustrating the operation of `_printf` is available. This 
 - Error case handling
 - Return values
 
-![alt text](image/flowchart.png)
-
+![text](image/flowchart.png)
 
 
 ## Custom Manual
@@ -218,7 +217,7 @@ Un diagramme de flux détaillé illustrant le fonctionnement de `_printf` est di
 - La gestion des cas d'erreur
 - Le retour des valeurs
 
-![alt text](image/flowchart.png)
+![text](image/flowchart.png)
 
 
 
